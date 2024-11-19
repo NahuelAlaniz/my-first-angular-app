@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector:'app-user',
-  template:`
-  Username: {{ username }} 
-  `,
-  standalone:true,
-})
-export class UserComponent {
-  username='youngTech';
-}
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<section><app-user /></section>`,
-  standalone: true,
-  imports:[UserComponent],
-  })
-  export class AppComponent {
-    city='San Francisco';
-  }
+  template: `
+    @if (isServerRunning) {
+    <span>Yes, the server is running</span>
+    } @else {
+    <span>No, the server is not running</span>
+    }
+  `,
+})
+export class AppComponent {
+  isServerRunning = true;
+}
