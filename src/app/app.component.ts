@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     @for(user of users; track user.id) {
     <p>{{ user.name }}</p>
     }
   `,
+    standalone: true
 })
 export class AppComponent {
   users = [
