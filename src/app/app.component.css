@@ -1,0 +1,6 @@
+div {
+    display: block;
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
