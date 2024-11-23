@@ -1,18 +1,12 @@
 import {Component} from '@angular/core';
+import {UserComponent} from './user.component';
+
 
 @Component({
   selector: 'app-root',
   template: `
-    <section (mouseover)="onMouseOver()">
-      There´s a secret message for you, hover to reveal:
-      {{ message }}
-    </section>
+    <app-user name="Simran"/>
   `,
+  imports: [UserComponent],
 })
-export class AppComponent {
-  message = '';
-
-  onMouseOver() {
-    this.message = 'Way to go 🚀';
-  }
-}
+export class AppComponent {}
