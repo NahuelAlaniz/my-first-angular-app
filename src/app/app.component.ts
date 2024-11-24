@@ -1,12 +1,18 @@
 import {Component} from '@angular/core';
-import {UserComponent} from './user.component';
-
+import {ChildComponent} from './child.component';
 
 @Component({
   selector: 'app-root',
   template: `
-    <app-user name="Simran"/>
+    <app-child (addItemEvent)="addItem($event)" />
+    <p>🐢 all the way down {{ items.length }}</p>
   `,
-  imports: [UserComponent],
+  imports: [ChildComponent],
 })
-export class AppComponent {}
+export class AppComponent {
+  items = new Array();
+
+  addItem(item: string) {
+    this.items.push(item);
+  }
+}
