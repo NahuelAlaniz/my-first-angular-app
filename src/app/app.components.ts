@@ -11,6 +11,6 @@ import { RouterOutlet, RouterLink } from "@angular/router";
       </nav>
       <router-outlet>
     `,
-    imports: [RouterLink,RouterOutlet],
+    imports: [RouterOutlet, RouterLink],
 })
 export class AppComponent {}
