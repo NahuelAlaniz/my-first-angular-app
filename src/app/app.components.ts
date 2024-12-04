@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
       <input type="text" formControlName="name" />
       <input type="email" formControlName="email" />
-      <button type="submit">Submit</button>
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
 
     <h2>Profile Form</h2>
@@ -19,8 +19,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 })
 export class AppComponent {
   profileForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   handleSubmit() {
